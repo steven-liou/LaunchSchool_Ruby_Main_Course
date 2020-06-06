@@ -1,0 +1,20 @@
+verbs:
+  ['scissors', 'paper']: 'cuts'
+  ['paper', 'rock'] : 'covers'
+  ['rock', 'lizard']: 'crushes'
+  ['lizard', 'Spock']: 'poisons'
+  ['Spock', 'scissors']: 'smahes'
+  ['scissors', 'lizard']: 'decapitates'
+  ['lizard', 'paper']: 'eats'
+  ['paper', 'Spock']: 'disproves'
+  ['Spock', 'rock']: 'vaporizes'
+  ['rock', 'scissors']: 'crushes'
+
+VALID_CHOICES_INITIALS:
+  "r": "rock"
+  "p": "paper"
+  "s": "scissors"
+  "l": "lizard"
+  "ss": "Spock"
+
+ 

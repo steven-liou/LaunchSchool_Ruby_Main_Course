@@ -1,0 +1,24 @@
+en:
+  welcome: "Welcome to Calculator! Enter your name:"
+  valid_name: "Make sure to enter a valid name."
+  first_number: "Enter your first number: "
+  second_number: "Enter your second number: "
+  invalid_number: "Hmmm... that is not a valid number."
+
+  operator_prompt: "What operation would you like to perform?\n1) add\n2) subtract\n3) multiply\n4) divide"
+
+  again?: "Do you want to perform another calculation? (Y to calculate again)"
+  goodbye: "Thank you for using this calculator, goodbye"
+
+
+ch:
+  welcome: "歡迎使用這台計算器，請輸入你的名字: "
+  valid_name: "糗輸入正確的名字"
+  first_number: "輸入第一個數字: "
+  second_number: "輸入第二個數字: "
+  invalid_number: "恩...這不是個正確的數字"
+
+  operator_prompt: "你要做什麼計算?\n1) 加法\n2) 減法\n3) 成法\n4) 除法"
+
+  again?: "你還要再做一次計算嗎? 請按 y"
+  goodbye: "謝謝使用這台計算器，再見"

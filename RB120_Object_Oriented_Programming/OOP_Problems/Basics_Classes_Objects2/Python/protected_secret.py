@@ -1,0 +1,3 @@
+class Person:
+    @property
+    def 
