@@ -27,14 +27,14 @@ Algorithms:
 */
 
 function rot13(string) {
-  let cipheredString = "";
+  let cipheredString = '';
 
   for (let index = 0; index < string.length; index++) {
     let chr = string[index];
     chrIndex = chr.toLowerCase().charCodeAt();
 
-    if ("a".charCodeAt() <= chrIndex && chrIndex <= "z".charCodeAt()) {
-      let caseIndex = chr.charCodeAt() < "a".charCodeAt() ? "A" : "a";
+    if ('a'.charCodeAt() <= chrIndex && chrIndex <= 'z'.charCodeAt()) {
+      let caseIndex = chr.charCodeAt() < 'a'.charCodeAt() ? 'A' : 'a';
 
       alphabeticIndex = chr.charCodeAt() - caseIndex.charCodeAt();
       rotIndex = ((alphabeticIndex + 13) % 26) + caseIndex.charCodeAt();
@@ -46,5 +46,5 @@ function rot13(string) {
   return cipheredString;
 }
 
-console.log(rot13("Teachers open the door, but you must enter by yourself."));
-console.log(rot13(rot13("Teachers open the door, but you must enter by yourself.")));
+console.log(rot13('Teachers open the door, but you must enter by yourself.'));
+console.log(rot13(rot13('Teachers open the door, but you must enter by yourself.')));
