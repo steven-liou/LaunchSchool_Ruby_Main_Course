@@ -1,0 +1,11 @@
+
+<ul>
+  <% @contacts.each do |group, people| %>
+    <li>
+      <a href="/contacts/<%= group %>"><%= group %></a>
+      <p>Number of contacts in <%= group %>: <%= people.size %></p>
+    </li>
+  <% end %>
+</ul>
+
+<a href="/contacts/create">New Contact</a>

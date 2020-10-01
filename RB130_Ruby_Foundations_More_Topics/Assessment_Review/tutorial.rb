@@ -1,10 +1,15 @@
-a = 1
-b = 2
+def take_block(array)
+    array.each do |ele|
+      result = yield(ele)
+      puts "#{result} is printed from within method" if result
+    end
+end
 
-my_proc = Proc.new { p c }
-
-c = 3
-my_proc.call 
-
-p local_variables
+take_block([1, 2, 3, 4]) do |number|
+  if number.odd?
+    puts "#{number} is printed from within block"
+  else
+    next(number * 2)
+  end
+end
 

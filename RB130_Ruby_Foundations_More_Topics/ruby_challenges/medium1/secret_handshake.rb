@@ -1,54 +1,21 @@
-=begin
-
-Input : a number
-
-Output : the secret handshake string
-
-Rules
-
-
-Data structure / Algorithms
-  - convert the number to binary number
-    if the input is a string, check if it contains only digits
-      if so, turn it into numbers
-      else, make it 0
-
-  - look up the secret handshake array
-      - ['wink', 'double blink', 'close your eyes', 'jump']
-
-    create an array for result
-    iterate through the digits from lower power to higher power by index
-      if the current digit is 1, then
-        look up the table by the index to get the secret handshake if index < 4
-        reverse the result array if index == 4
-    return result
-=end
+# first convert the number into binary number, and get the digits into an array in reverse order
 
 class SecretHandshake
-  HANDSHAKES = %w(wink double\ blink close\ your\ eyes jump)
-
+  COMMANDS = ['wink', 'double blink', 'close your eyes', 'jump']
   def initialize(input)
-    @binary = convert_to_bin(input)
+    binary_string = input.instance_of?(Integer) ? input.to_s(2) : input
+    binary_string = '0' if binary_string =~ /[^01]/
+    @binary_digits = binary_string.to_i.digits
   end
 
   def commands
-    result = []
-    @binary.digits.each_with_index do |digit, index|
-      if digit == 1
-        result << HANDSHAKES[index] if index < 4
-        result.reverse! if index == 4
+    @binary_digits.each_with_index.with_object([]) do |(value, index), command_list|
+      next if value == 0
+      if index > COMMANDS.size - 1
+        command_list.reverse! if value == 1
+      else
+        command_list << COMMANDS[index] if value == 1
       end
-    end
-    result
-  end
-
-  def convert_to_bin(input)
-    if input.instance_of?(String)
-      input =~ /[^01]/ ? 0 : input.to_i
-    elsif input.instance_of?(Integer) && input > 0
-      input.to_s(2).to_i
-    else
-      0
     end
   end
 end

@@ -1,0 +1,67 @@
+html {
+  color: white;
+}
+
+body,
+main,
+figure,
+caption {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #141414;
+  color: #f0f0f0;
+  padding: 0 10px;
+  font: normal 16px Helvetica, Arial, sans-serif;
+}
+
+main {
+  min-width: 600px;
+  max-width: 1000px;
+  background-color: #333333;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+h1 {
+  text-align: center;
+}
+
+img {
+  display: block;
+  width: 100%;
+}
+
+figure {
+  margin: 0;
+  padding: 0 0 30 0;
+}
+
+figure img {
+  box-sizing: border-box;
+  border: 15px solid #fff;
+}
+
+figcaption {
+  padding: 10px 0 0 0;
+}
+
+ul {
+  padding: 0;
+  list-style-type: none;
+  font-size: 0;
+  margin: 0 -15px;
+}
+
+li {
+  display: inline-block;
+  width: 25%;
+  padding: 0 15px;
+  box-sizing: border-box;
+}
+
+li img {
+  border: 3px solid white;
+}

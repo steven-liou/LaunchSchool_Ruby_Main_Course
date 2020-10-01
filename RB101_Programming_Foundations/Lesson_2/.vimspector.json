@@ -1,0 +1,23 @@
+
+{
+  "configurations": {
+ "launch current file": {
+      "adapter": "cust_vscode-ruby",
+      "configuration": {
+        "request": "launch",
+        "program": "${file}",
+        "args": [ "*${args}" ]
+      }
+    },
+    "Attach": {
+      "adatper": "cust_vscode-ruby",
+      "configuration": {
+			"request": "attach",
+			"remoteHost": "127.0.0.1",
+			"remotePort": "1234",
+			"remoteWorkspaceRoot": "${workspaceRoot}",
+      "args": ["*${args}"]
+      }
+    }
+  }
+}

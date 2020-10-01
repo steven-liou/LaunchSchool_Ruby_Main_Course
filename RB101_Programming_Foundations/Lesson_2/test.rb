@@ -3,6 +3,6 @@ def extend_greeting(greeting)
 end
 
 greeting = "hi"
-extend_greeting(greeting)
+puts extend_greeting(greeting)
 
-puts greeting
+

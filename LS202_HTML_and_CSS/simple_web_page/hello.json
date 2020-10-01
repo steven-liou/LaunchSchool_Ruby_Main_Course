@@ -1,0 +1,14 @@
+{
+  "cssvalidation" : {
+     "uri"       : "hello.css",
+     "checkedby" : "http://www.w3.org/2005/07/css-validator",
+     "csslevel"  : "css3",
+     "date"      : "2020-09-18T02:57:43Z",
+     "timestamp" : "1600397863544",
+     "validity"  : true,
+     "result"    : {
+		"errorcount"   : 0,
+		"warningcount" : 0
+                   }
+    }
+}

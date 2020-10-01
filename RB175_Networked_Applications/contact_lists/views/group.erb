@@ -1,0 +1,22 @@
+<h2>Contacts for <%= params[:group] %>:</h2>
+<ul>
+  <% @people.each_with_index do |person, index| %>
+    <li>
+      <h3><%= person[:name] %></h3>
+      <a href="/contacts/<%= params[:group] %>/<%= index %>/edit">Edit Contact </a>
+      <form action="/contacts/<%= params[:group] %>/<%= index %>/delete" method="post">
+        <button type="submit">Delete Contact</button>
+      </form>
+        <ul>
+          <% person.each do |field, value| %>
+            <% next if field == :name %>
+            <li><%= field%>: <%= value %></li>
+          <% end %>
+        </ul>
+    </li>
+  <% end %>
+</ul>
+
+<% content_for :header_links do %>
+  <a href="/contacts">All Contacts</a>
+<% end %>

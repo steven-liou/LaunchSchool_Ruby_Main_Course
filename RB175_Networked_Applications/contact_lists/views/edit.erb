@@ -1,0 +1,20 @@
+<form action="/contacts/<%= params[:group] %>/<%= params[:id] %>/edit" method="post">
+  <h3>Editing information for <%= @name %></h3>
+
+  <div>
+    <label for="telephone">Telephone:</label>
+    <input name="telephone" id="telephone" type="text" value="<%= @telephone %>">
+  </div>
+
+  <div>
+    <label for="address">Address:</label>
+    <input name="address" id="address" type="text" value="<%= @address %>">
+  </div>
+
+  <div>
+    <label for="email">Email:</label>
+    <input name="email" id="email" type="text" value="<%= @email %>">
+  </div>
+  <button type="submit">Save contact</button>
+  <a href="/contacts/<%= params[:group] %>">Cancel</a>
+</form>

@@ -1,0 +1,11 @@
+<ul>
+  <li>Name: <%= @user_name %></li>
+  <li>email: <%= @email %></li>
+  <li>Interests: <%= @interests %></li>
+</ul>
+<ul>
+  <% @users.each do |name, _| %>
+    <% next if name == @user_name %>
+    <li><a href="/users/<%= name %>"><%= name %></a></li>
+  <% end %>
+</ul>

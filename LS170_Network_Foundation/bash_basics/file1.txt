@@ -1,0 +1,2 @@
+I am writing keyboard to input text.
+Cat command reads my keyboard input, converts it to stdout, which is read into the file. That is untile I press Ctrl + D

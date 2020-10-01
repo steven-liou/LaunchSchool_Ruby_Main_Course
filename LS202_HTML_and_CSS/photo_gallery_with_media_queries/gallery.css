@@ -1,0 +1,100 @@
+html {
+  color: white;
+}
+
+body,
+main,
+figure,
+caption {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #141414;
+  color: #f0f0f0;
+  padding: 0 10px;
+  font: normal 16px Helvetica, Arial, sans-serif;
+}
+
+main {
+  max-width: 1000px;
+  background-color: #333333;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+h1 {
+  text-align: center;
+}
+
+img {
+  display: block;
+  width: 100%;
+}
+
+figure {
+  margin: 0;
+  padding: 0 0 30 0;
+}
+
+figure img {
+  box-sizing: border-box;
+  border: 15px solid #fff;
+}
+
+figcaption {
+  padding: 10px 0 0 0;
+}
+
+ul {
+  padding: 0;
+  list-style-type: none;
+  font-size: 0;
+  margin: 0 -15px;
+}
+
+li {
+  display: inline-block;
+  width: 25%;
+  padding: 0 15px;
+  box-sizing: border-box;
+  margin-bottom: 15px;
+}
+
+li img {
+  border: 3px solid white;
+}
+
+@media screen and (max-width: 899px) {
+  li {
+    width: 33.3333%;
+  }
+}
+
+@media screen and (max-width: 599px) {
+  li {
+    width: 50%;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  main {
+    max-width: none;
+    width: 100%;
+  }
+  figure {
+    float: left;
+    margin-right: 50px;
+    vertical-align: top;
+    width: 950px;
+  }
+
+  ul {
+    overflow: hidden;
+  }
+
+  li {
+    width: 100%;
+  }
+}
