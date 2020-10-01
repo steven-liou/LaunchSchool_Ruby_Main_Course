@@ -26,6 +26,9 @@ Algorithms:
 
 */
 
+const LowerCaseAIndex = 'a'.charCodeAt();
+const LowerCaseZIndex = 'z'.charCodeAt();
+
 function rot13(string) {
   let cipheredString = '';
 
@@ -33,18 +36,26 @@ function rot13(string) {
     let chr = string[index];
     chrIndex = chr.toLowerCase().charCodeAt();
 
-    if ('a'.charCodeAt() <= chrIndex && chrIndex <= 'z'.charCodeAt()) {
-      let caseIndex = chr.charCodeAt() < 'a'.charCodeAt() ? 'A' : 'a';
-
-      alphabeticIndex = chr.charCodeAt() - caseIndex.charCodeAt();
-      rotIndex = ((alphabeticIndex + 13) % 26) + caseIndex.charCodeAt();
-      cipheredString += String.fromCharCode(rotIndex);
+    if (LowerCaseAIndex <= chrIndex && chrIndex <= LowerCaseZIndex) {
+      cipheredString += cipherRot13Char(chr);
     } else {
       cipheredString += chr;
     }
   }
   return cipheredString;
 }
+
+function cipherRot13Char(chr) {
+  let chrCase = chr.charCodeAt() < LowerCaseAIndex ? 'A' : 'a';
+  let caseAIndex = chrCase.charCodeAt();
+
+  alphabeticIndex = chr.charCodeAt() - caseAIndex;
+  rotAlphabeticIndex = (alphabeticIndex + 13) % 26;
+  rotIndex = rotAlphabeticIndex + caseAIndex;
+  return String.fromCharCode(rotIndex);
+}
+
+// Examples
 
 console.log(rot13('Teachers open the door, but you must enter by yourself.'));
 console.log(rot13(rot13('Teachers open the door, but you must enter by yourself.')));
