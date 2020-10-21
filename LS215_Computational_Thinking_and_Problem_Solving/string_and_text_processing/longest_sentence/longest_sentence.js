@@ -60,12 +60,11 @@ function longestSentence(text) {
 }
 
 function createSentenceObject(sentence) {
-  words = sentence.split(' ');
-  object = {
-    wordCount: words.length,
+  wordCount = sentence.split(/\s+/).length;
+  return {
+    wordCount,
     sentence,
   };
-  return object;
 }
 
 function findLongestSentence(sentenceObjects) {
