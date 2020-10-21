@@ -1,10 +1,9 @@
 function logMultiples(factor) {
-  const largestMultiple = Math.floor(100 / factor);
-  const startNumber = largestMultiple * factor;
-  for (let currentNumber = startNumber; currentNumber > 0; currentNumber -= factor) {
-    if (currentNumber % factor === 0 && currentNumber % 2 !== 0) {
-      console.log(currentNumber);
-    }
+  let multiples = Math.floor(100 / factor);
+  let startiingNumber = factor * multiples;
+
+  for (let index = startiingNumber; index > 0; index -= factor) {
+    if (index % 2 !== 0) console.log(index);
   }
 }
 

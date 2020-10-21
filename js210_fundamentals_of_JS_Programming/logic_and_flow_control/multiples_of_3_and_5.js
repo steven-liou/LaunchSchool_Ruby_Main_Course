@@ -1,11 +1,11 @@
 function multiplesOfThreeAndFive(startNumber, upToNumber) {
-  for (let currentNumber = startNumber; currentNumber <= upToNumber; currentNumber++) {
-    if (currentNumber % 3 == 0 && currentNumber % 5 == 0) {
-      console.log(String(currentNumber) + "!");
-    } else if (currentNumber % 3 == 0 || currentNumber % 5 == 0) {
-      console.log(String(currentNumber));
+  for (let index = startNumber; index <= upToNumber; index++) {
+    if (index % 3 == 0 && index % 5 == 0) {
+      console.log(String(index) + '!');
+    } else if (index % 3 == 0 || index % 5 == 0) {
+      console.log(String(index));
     }
   }
 }
 
-multiplesOfThreeAndFive(90, 100);
+multiplesOfThreeAndFive(1, 100);

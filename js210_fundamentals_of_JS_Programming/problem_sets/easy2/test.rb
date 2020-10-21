@@ -1,0 +1,3 @@
+def good; end
+
+function  

@@ -1,6 +1,9 @@
-function logOddNumbers(integer) {
-  for (let index = 1; index <= integer; index += 2) {
+function logOddNumbers(number) {
+  let index = 1;
+
+  while (index <= number) {
     console.log(index);
+    index += 2;
   }
 }
 

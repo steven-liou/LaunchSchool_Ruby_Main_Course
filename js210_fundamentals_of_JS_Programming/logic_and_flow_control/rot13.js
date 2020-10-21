@@ -56,6 +56,5 @@ function cipherRot13Char(chr) {
 }
 
 // Examples
-
 console.log(rot13('Teachers open the door, but you must enter by yourself.'));
 console.log(rot13(rot13('Teachers open the door, but you must enter by yourself.')));
