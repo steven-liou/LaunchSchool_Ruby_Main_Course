@@ -19,7 +19,10 @@ let Todo = (() => {
     this.year = data.year || String(today.getFullYear());
     this.description = data.description;
     this.completed = false;
-    this.id = todoID;
+    Object.defineProperty(this, 'id', {
+      value: todoID,
+      writable: false,
+    });
     todoID += 1;
   };
 })();
@@ -30,6 +33,7 @@ Todo.prototype.isWithinMonthYear = function (month, year) {
 
 let todoList = (() => {
   let todos = [];
+  let notFound = 'todo not found';
 
   function findTodo(id) {
     return todos.filter((todo) => todo.id === id)[0];
@@ -45,10 +49,6 @@ let todoList = (() => {
       return this;
     },
 
-    todos() {
-      return todos.slice();
-    },
-
     add(todo) {
       if (todo instanceof Todo) {
         todos.push(todo);
@@ -59,17 +59,28 @@ let todoList = (() => {
     },
 
     delete(id) {
-      let todo = id ? findTodo(id) : todos[todos.length - 1];
+      let todo = findTodo(id);
+      if (!todo) {
+        return notFound;
+      }
+
       let index = todos.indexOf(todo);
       return todos.splice(index, 1)[0];
     },
 
     get(id) {
+      let todo = findTodo(id);
+      if (!todo) {
+        return notFound;
+      }
       return Object.assign({}, findTodo(id));
     },
 
     update(id, data = {}) {
       let todo = findTodo(id);
+      if (!todo) {
+        return notFound;
+      }
 
       Object.getOwnPropertyNames(data).forEach((prop) => {
         if (todo.hasOwnProperty(prop)) {
@@ -77,6 +88,12 @@ let todoList = (() => {
         }
       });
       return true;
+    },
+
+    todos() {
+      return todos.slice().map((todo) => {
+        return Object.assign(Object.create(todo), todo);
+      });
     },
   };
 })();
@@ -92,14 +109,14 @@ let todoManager = {
     return this.list.todos().filter((todo) => todo.completed);
   },
 
-  onTrack(month, year, todos = this.list.todos()) {
-    return todos.filter((todo) => todo.isWithinMonthYear(month, year));
+  onTrack(month, year) {
+    return this.list.todos().filter((todo) => todo.isWithinMonthYear(month, year));
   },
 
   onTime(month, year) {
-    let completed = this.completed();
-
-    return this.onTrack(month, year, completed);
+    return this.list.todos().filter((todo) => {
+      return todo.isWithinMonthYear(month, year) && todo.completed;
+    });
   },
 };
 
