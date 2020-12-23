@@ -1,8 +1,19 @@
+'use strict';
+
 let Todo = (() => {
   let todoID = 0;
 
-  return function (data) {
+  function convertValuesToString(data) {
+    for (let [prop, value] of Object.entries(data)) {
+      if (value && typeof value !== 'string') {
+        data[prop] = String(value);
+      }
+    }
+  }
+
+  return function (data = {}) {
     let today = new Date();
+    convertValuesToString(data);
     this.title = data.title;
     this.month = data.month || String(today.getMonth() + 1);
     this.year = data.year || String(today.getFullYear());
@@ -73,12 +84,22 @@ let todoList = (() => {
 let todoManager = {
   list: todoList,
 
-  allTodos() {
+  all() {
     return this.list.todos();
   },
 
-  allCompleted() {
-    return this.list.filter((todo) => todo.completed);
+  completed() {
+    return this.list.todos().filter((todo) => todo.completed);
+  },
+
+  onTrack(month, year, todos = this.list.todos()) {
+    return todos.filter((todo) => todo.isWithinMonthYear(month, year));
+  },
+
+  onTime(month, year) {
+    let completed = this.completed();
+
+    return this.onTrack(month, year, completed);
   },
 };
 
